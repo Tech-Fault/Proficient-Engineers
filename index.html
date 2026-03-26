@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proficient Engineers – Silent Genset Specialists</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #c8202e;
+    --dark-red: #9a1520;
+    --black: #111111;
+    --dark: #1a1a1a;
+    --charcoal: #2c2c2c;
+    --mid: #444;
+    --light: #f5f5f5;
+    --white: #ffffff;
+    --gold: #e8a020;
+    --border: rgba(200,32,46,0.25);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--black);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(17,17,17,0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 2px solid var(--red);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px; height: 70px;
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 14px;
+  }
+  .nav-logo-icon {
+    width: 42px; height: 42px;
+    background: var(--red);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+  .nav-brand { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 22px; letter-spacing: 1px; }
+  .nav-brand span { color: var(--red); }
+  .nav-links { display: flex; gap: 8px; list-style: none; }
+  .nav-links a {
+    display: block; padding: 8px 16px;
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 600;
+    font-size: 13px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: #bbb; text-decoration: none;
+    border: 1px solid transparent; border-radius: 3px;
+    transition: all 0.2s;
+  }
+  .nav-links a:hover, .nav-links a.active {
+    color: var(--white); border-color: var(--red); background: rgba(200,32,46,0.1);
+  }
+  .nav-cta {
+    background: var(--red); color: var(--white) !important;
+    border-color: var(--red) !important;
+  }
+  .nav-cta:hover { background: var(--dark-red) !important; }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh; padding-top: 70px;
+    background: var(--black);
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+  }
+  .hero-grid {
+    position: absolute; inset: 0; opacity: 0.06;
+    background-image: linear-gradient(var(--red) 1px, transparent 1px),
+                      linear-gradient(90deg, var(--red) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-glow {
+    position: absolute; top: 20%; right: -10%;
+    width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(200,32,46,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    max-width: 1200px; margin: 0 auto; padding: 80px 48px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(200,32,46,0.15); border: 1px solid var(--red);
+    padding: 6px 16px; border-radius: 2px;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 13px;
+    letter-spacing: 2px; text-transform: uppercase; color: var(--red);
+    margin-bottom: 24px;
+  }
+  .hero-badge::before { content: '●'; font-size: 8px; animation: pulse 1.5s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+  h1 {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 800;
+    font-size: clamp(52px, 6vw, 86px); line-height: 0.95;
+    text-transform: uppercase; letter-spacing: -1px;
+    margin-bottom: 24px;
+  }
+  h1 .accent { color: var(--red); display: block; }
+  .hero-sub {
+    font-size: 17px; color: #aaa; line-height: 1.7; max-width: 480px;
+    margin-bottom: 40px; font-weight: 300;
+  }
+  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary {
+    padding: 14px 32px;
+    background: var(--red); color: var(--white);
+    border: none; border-radius: 3px; cursor: pointer;
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+    font-size: 15px; letter-spacing: 1.5px; text-transform: uppercase;
+    text-decoration: none; display: inline-block;
+    transition: all 0.2s; position: relative; overflow: hidden;
+  }
+  .btn-primary:hover { background: var(--dark-red); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,32,46,0.4); }
+  .btn-outline {
+    padding: 14px 32px;
+    background: transparent; color: var(--white);
+    border: 2px solid #444; border-radius: 3px; cursor: pointer;
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+    font-size: 15px; letter-spacing: 1.5px; text-transform: uppercase;
+    text-decoration: none; display: inline-block;
+    transition: all 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--red); color: var(--red); }
+
+  /* Hero Stats */
+  .hero-stats {
+    display: flex; flex-direction: column; gap: 24px;
+    padding: 40px; background: var(--dark);
+    border: 1px solid var(--border); border-radius: 6px;
+    position: relative;
+  }
+  .hero-stats::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--red), var(--gold));
+  }
+  .stat { display: flex; align-items: center; gap: 20px; }
+  .stat-num {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 800;
+    font-size: 52px; color: var(--red); line-height: 1; min-width: 120px;
+  }
+  .stat-num span { font-size: 28px; }
+  .stat-label { font-size: 14px; color: #aaa; line-height: 1.5; }
+  .stat-label strong { display: block; color: var(--white); font-size: 16px; margin-bottom: 2px; }
+  .stat-divider { height: 1px; background: var(--border); }
+
+  /* ── SECTION BASE ── */
+  section { padding: 100px 48px; }
+  .container { max-width: 1200px; margin: 0 auto; }
+  .section-label {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+    font-size: 12px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--red); margin-bottom: 12px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  h2 {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 800;
+    font-size: clamp(36px, 4vw, 56px); text-transform: uppercase;
+    line-height: 1; margin-bottom: 16px;
+  }
+  h2 em { color: var(--red); font-style: normal; }
+  .section-intro { font-size: 16px; color: #aaa; max-width: 580px; line-height: 1.7; margin-bottom: 60px; }
+
+  /* ── PRODUCTS ── */
+  #products { background: var(--dark); }
+  .products-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }
+  .product-card {
+    background: var(--charcoal); padding: 40px 32px;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s; cursor: default; position: relative; overflow: hidden;
+  }
+  .product-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 0;
+    background: linear-gradient(180deg, rgba(200,32,46,0.08), transparent);
+    transition: height 0.3s;
+  }
+  .product-card:hover { background: #333; border-color: var(--red); }
+  .product-card:hover::before { height: 100%; }
+  .product-icon {
+    width: 56px; height: 56px; background: rgba(200,32,46,0.12);
+    border: 1px solid var(--border); border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; margin-bottom: 24px;
+  }
+  .product-card h3 {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+    font-size: 22px; text-transform: uppercase; margin-bottom: 12px;
+  }
+  .product-card p { font-size: 14px; color: #999; line-height: 1.6; margin-bottom: 20px; }
+  .product-range {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 13px;
+    color: var(--red); letter-spacing: 1px; text-transform: uppercase;
+  }
+  .product-card .tag {
+    position: absolute; top: 20px; right: 20px;
+    background: var(--red); color: var(--white);
+    font-size: 10px; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; padding: 4px 10px; border-radius: 2px;
+  }
+
+  /* ── SALES ── */
+  #sales { background: var(--black); }
+  .sales-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+  .sales-form-wrapper {
+    background: var(--dark); border: 1px solid var(--border);
+    padding: 40px; border-radius: 4px; position: relative;
+  }
+  .sales-form-wrapper::before {
+    content: 'ENQUIRY'; position: absolute; top: -12px; left: 24px;
+    background: var(--red); color: var(--white);
+    font-family: 'Barlow Condensed', sans-serif; font-size: 11px;
+    letter-spacing: 2px; font-weight: 700; padding: 4px 14px;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+  .form-group label {
+    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: #888; font-weight: 600;
+  }
+  .form-group input, .form-group select, .form-group textarea {
+    background: var(--charcoal); border: 1px solid #3a3a3a; border-radius: 3px;
+    padding: 12px 16px; color: var(--white); font-family: 'Barlow', sans-serif; font-size: 14px;
+    transition: border-color 0.2s; outline: none;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color: var(--red);
+  }
+  .form-group select option { background: var(--charcoal); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-submit {
+    width: 100%; padding: 16px;
+    background: var(--red); color: var(--white);
+    border: none; border-radius: 3px; cursor: pointer;
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+    font-size: 16px; letter-spacing: 2px; text-transform: uppercase;
+    transition: all 0.2s; margin-top: 8px;
+  }
+  .form-submit:hover { background: var(--dark-red); transform: translateY(-1px); }
+
+  .why-list { list-style: none; display: flex; flex-direction: column; gap: 20px; }
+  .why-item {
+    display: flex; gap: 20px; align-items: flex-start;
+    padding: 20px; background: var(--dark);
+    border-left: 3px solid var(--red); border-radius: 0 4px 4px 0;
+  }
+  .why-icon { font-size: 28px; flex-shrink: 0; margin-top: 2px; }
+  .why-item h4 {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+    font-size: 18px; text-transform: uppercase; margin-bottom: 4px;
+  }
+  .why-item p { font-size: 13px; color: #999; line-height: 1.5; }
+
+  /* ── COMPLAINT ── */
+  #complaint { background: var(--dark); }
+  .complaint-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: start; }
+  .complaint-info { }
+  .step-list { list-style: none; display: flex; flex-direction: column; gap: 0; margin-top: 40px; }
+  .step-item {
+    display: flex; gap: 20px; align-items: flex-start; padding: 24px 0;
+    border-bottom: 1px solid #2a2a2a; position: relative;
+  }
+  .step-num {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: rgba(200,32,46,0.1); border: 2px solid var(--red);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 800;
+    font-size: 18px; color: var(--red); flex-shrink: 0;
+  }
+  .step-text h4 {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+    font-size: 17px; text-transform: uppercase; margin-bottom: 4px;
+  }
+  .step-text p { font-size: 13px; color: #999; }
+  .complaint-form {
+    background: var(--black); border: 1px solid var(--border);
+    padding: 40px; border-radius: 4px; position: relative;
+  }
+  .complaint-form::before {
+    content: 'COMPLAINT'; position: absolute; top: -12px; left: 24px;
+    background: var(--gold); color: var(--black);
+    font-family: 'Barlow Condensed', sans-serif; font-size: 11px;
+    letter-spacing: 2px; font-weight: 800; padding: 4px 14px;
+  }
+  .rating-stars { display: flex; gap: 8px; margin-top: 6px; }
+  .star { font-size: 28px; cursor: pointer; color: #444; transition: color 0.15s; }
+  .star.active, .star:hover { color: var(--gold); }
+
+  /* ── ABOUT ── */
+  #about { background: var(--black); }
+  .about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .about-visual {
+    background: var(--dark); border: 1px solid var(--border);
+    border-radius: 4px; overflow: hidden; position: relative;
+    aspect-ratio: 4/3;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .about-visual-inner {
+    display: flex; flex-direction: column; align-items: center; gap: 16px; opacity: 0.7;
+  }
+  .about-visual-icon { font-size: 64px; }
+  .about-visual-text {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 800;
+    font-size: 28px; text-transform: uppercase; color: #555;
+  }
+  .about-values { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 40px; }
+  .value-card {
+    background: var(--dark); border: 1px solid #2a2a2a; padding: 20px;
+    border-radius: 3px; transition: border-color 0.2s;
+  }
+  .value-card:hover { border-color: var(--red); }
+  .value-card .v-icon { font-size: 22px; margin-bottom: 10px; }
+  .value-card h4 {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 16px;
+    font-weight: 700; text-transform: uppercase; color: var(--white); margin-bottom: 4px;
+  }
+  .value-card p { font-size: 12px; color: #777; line-height: 1.5; }
+  .about-text p { color: #aaa; line-height: 1.8; font-size: 15px; margin-bottom: 16px; }
+
+  /* ── UPDATES ── */
+  #updates { background: var(--dark); }
+  .updates-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .update-card {
+    background: var(--black); border: 1px solid #2a2a2a;
+    border-radius: 4px; overflow: hidden;
+    transition: all 0.3s; cursor: pointer;
+  }
+  .update-card:hover { border-color: var(--red); transform: translateY(-4px); }
+  .update-thumb {
+    height: 180px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 48px; position: relative;
+  }
+  .update-thumb.bg1 { background: linear-gradient(135deg, #1a0a0b, #2a1015); }
+  .update-thumb.bg2 { background: linear-gradient(135deg, #0a1020, #101828); }
+  .update-thumb.bg3 { background: linear-gradient(135deg, #0a150a, #101f10); }
+  .update-tag {
+    position: absolute; top: 12px; left: 12px;
+    background: var(--red); color: var(--white);
+    font-size: 10px; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; padding: 4px 10px; border-radius: 2px;
+  }
+  .update-tag.green { background: #1a7a1a; }
+  .update-tag.blue { background: #1a4a7a; }
+  .update-body { padding: 24px; }
+  .update-date { font-size: 11px; color: #666; letter-spacing: 1px; margin-bottom: 8px; }
+  .update-body h3 {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+    font-size: 20px; text-transform: uppercase; margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  .update-body p { font-size: 13px; color: #888; line-height: 1.5; }
+  .update-read {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 12px; color: var(--red); font-weight: 600;
+    letter-spacing: 1px; text-transform: uppercase;
+    margin-top: 16px; text-decoration: none;
+  }
+  .update-read::after { content: '→'; }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--black); }
+  .contact-layout { display: grid; grid-template-columns: 1fr 1.4fr; gap: 60px; }
+  .contact-cards { display: flex; flex-direction: column; gap: 20px; }
+  .contact-card {
+    display: flex; gap: 20px; align-items: flex-start;
+    background: var(--dark); border: 1px solid #2a2a2a;
+    padding: 24px; border-radius: 4px; transition: border-color 0.2s;
+  }
+  .contact-card:hover { border-color: var(--red); }
+  .contact-card-icon {
+    width: 48px; height: 48px; background: rgba(200,32,46,0.12);
+    border: 1px solid var(--border); border-radius: 4px;
+    display: flex; align-items: center; justify-content: center; font-size: 20px;
+    flex-shrink: 0;
+  }
+  .contact-card h4 {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+    font-size: 15px; text-transform: uppercase; letter-spacing: 1px;
+    color: #888; margin-bottom: 4px;
+  }
+  .contact-card p { font-size: 15px; color: var(--white); font-weight: 500; }
+  .contact-card a { color: var(--white); text-decoration: none; }
+  .contact-card a:hover { color: var(--red); }
+  .contact-form {
+    background: var(--dark); border: 1px solid var(--border);
+    padding: 40px; border-radius: 4px;
+  }
+  .contact-form h3 {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 800;
+    font-size: 28px; text-transform: uppercase; margin-bottom: 28px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #0a0a0a; border-top: 2px solid var(--red);
+    padding: 60px 48px 32px;
+  }
+  .footer-grid {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
+    padding-bottom: 48px; border-bottom: 1px solid #1a1a1a;
+  }
+  .footer-brand p { font-size: 13px; color: #666; line-height: 1.7; margin-top: 16px; max-width: 280px; }
+  .footer-col h5 {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+    font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--red); margin-bottom: 20px;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col a { font-size: 13px; color: #666; text-decoration: none; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--white); }
+  .footer-bottom {
+    max-width: 1200px; margin: 24px auto 0;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-bottom p { font-size: 12px; color: #444; }
+  .footer-logo {
+    font-family: 'Barlow Condensed', sans-serif; font-weight: 800;
+    font-size: 18px; letter-spacing: 1px;
+  }
+  .footer-logo span { color: var(--red); }
+
+  /* ── TOAST ── */
+  .toast {
+    position: fixed; bottom: 32px; right: 32px; z-index: 9999;
+    background: #1a1a1a; border: 1px solid var(--red);
+    padding: 16px 24px; border-radius: 4px;
+    font-size: 14px; color: var(--white);
+    transform: translateY(100px); opacity: 0;
+    transition: all 0.35s; pointer-events: none;
+    display: flex; align-items: center; gap: 12px;
+    border-left: 4px solid var(--red);
+  }
+  .toast.show { transform: translateY(0); opacity: 1; }
+  .toast.success { border-left-color: #2a9a2a; }
+  .toast-icon { font-size: 20px; }
+
+  /* ── MOBILE ── */
+  @media (max-width: 900px) {
+    nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    section { padding: 70px 20px; }
+    .hero-content { grid-template-columns: 1fr; padding: 60px 20px; }
+    .hero-stats { display: grid; grid-template-columns: 1fr 1fr; }
+    .stat-divider { display: none; }
+    .products-grid { grid-template-columns: 1fr; }
+    .sales-layout, .complaint-layout, .about-layout, .contact-layout { grid-template-columns: 1fr; }
+    .about-values { grid-template-columns: 1fr; }
+    .updates-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    h1 { font-size: 52px; }
+  }
+
+  /* ── ANIMATIONS ── */
+  .fade-in { opacity: 0; transform: translateY(24px); transition: all 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* Mobile nav toggle */
+  .nav-toggle {
+    display: none; background: none; border: 1px solid #333;
+    color: var(--white); padding: 6px 12px; cursor: pointer;
+    border-radius: 3px; font-size: 18px;
+  }
+  @media (max-width: 900px) { .nav-toggle { display: block; } }
+
+  .hamburger-menu {
+    display: none; position: fixed; top: 70px; left: 0; right: 0;
+    background: var(--black); border-bottom: 2px solid var(--red);
+    padding: 20px; z-index: 999; flex-direction: column; gap: 4px;
+  }
+  .hamburger-menu.open { display: flex; }
+  .hamburger-menu a {
+    padding: 12px 16px; font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600; font-size: 16px; letter-spacing: 1px; text-transform: uppercase;
+    color: #bbb; text-decoration: none; border-radius: 3px;
+  }
+  .hamburger-menu a:hover { background: rgba(200,32,46,0.1); color: var(--white); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-icon">⚡</div>
+    <div class="nav-brand">PROFICIENT <span>ENGINEERS</span></div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#products">Products</a></li>
+    <li><a href="#sales">Sales</a></li>
+    <li><a href="#complaint">Support</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#updates">Updates</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+  <button class="nav-toggle" onclick="toggleMenu()">☰</button>
+</nav>
+<div class="hamburger-menu" id="mobileMenu">
+  <a href="#products" onclick="toggleMenu()">Products</a>
+  <a href="#sales" onclick="toggleMenu()">Sales Enquiry</a>
+  <a href="#complaint" onclick="toggleMenu()">Register Complaint</a>
+  <a href="#about" onclick="toggleMenu()">About Us</a>
+  <a href="#updates" onclick="toggleMenu()">Updates</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="fade-in">
+      <div class="hero-badge">Authorised TMTL Silent Genset Dealer</div>
+      <h1>Power Without<br><span class="accent">the Noise.</span></h1>
+      <p class="hero-sub">Premium silent diesel & gas gensets for industrial, commercial, and residential needs. Engineered for reliability, optimised for silence.</p>
+      <div class="hero-btns">
+        <a href="#sales" class="btn-primary">Get a Quote</a>
+        <a href="#products" class="btn-outline">View Products</a>
+      </div>
+    </div>
+    <div class="hero-stats fade-in" style="transition-delay:0.2s">
+      <div class="stat">
+        <div class="stat-num">500<span>+</span></div>
+        <div class="stat-label"><strong>Gensets Installed</strong>Across industrial & commercial sites</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <div class="stat-num">15<span>yr</span></div>
+        <div class="stat-label"><strong>In Business</strong>Trusted power solutions partner</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <div class="stat-num">24<span>/7</span></div>
+        <div class="stat-label"><strong>AMC Support</strong>Round-the-clock service & maintenance</div>
+      </div>
+      <div class="stat-divider"></div>
+        <div class="stat">
+        <div class="stat-num">TMTL</div>
+        <div class="stat-label"><strong>Dealer</strong>Authorised TMTL Dealer across middle Gujarat</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="section-label">ABOUT US</div>
+    <h1>LEADERSHIP</h1>
+    <p class="section-intro">Proficient Engineers was founded by Viren Patel in 2010.</p>
+    <h2><em>Viren Patel</em></h2>
+    <h3>Founder of Proficient Engineers<br><br><br><br></h3>
+    
+
+    <h4><em>He founded Proficient Engineers in 2010, driven by his expertise as an electrical engineer<br> and his vision for innovation. With determination and foresight, he transformed Proficient <br>Engineers into more than just a dealership—it became a reflection of his commitment to <br>engineering excellence and purposeful leadership.<br><br><br></h4>
+    <h4><em>POST: </em> Founder, CEO, Market Leader, Managing Partner<br><br></h4>
+    <h4><em></em>OTHER BUSINESS: </em>Supplier of Services,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Recipient of Goods or Services<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Retail BusinessWorks Contract <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Warehouse / Depot<br><br></h4>
+    <h4><em>WORKFORCE WORKING ALONG HIM: </em> 80-100 people<br><br></h4>
+    <h4><em>  NATURE OF BUSINESS: </em>Retailer <br><br></h4>
+    <h4><em>EMAIL:</em>&nbsp;&nbsp;virubhaicontractor@gmail.com<br><br></h4>
+    <h4><em>CONTACT: </em> +91 93281 49058<br><br><br><br></h4>
+    
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="container">
+    <div class="section-label">Our Range</div>
+    <h2>Silent <em>Genset</em> Solutions</h2>
+    <p class="section-intro">Industry-grade silent generators engineered for reliability. Every unit backed by full warranty and AMC support.</p>
+    <div class="products-grid fade-in">
+      <div class="product-card">
+        <div class="tag">Bestseller</div>
+        <div class="product-icon">⚡</div>
+        <h3>Diesel Silent Gensets</h3>
+        <p>Canopied silent diesel generators with acoustic enclosure, ideal for offices, hospitals, data centres, and industrial plants.</p>
+        <div class="product-range">5 kVA – 2000 kVA</div>
+      </div>
+      <div class="product-card">
+        <div class="product-icon">🔋</div>
+        <h3>Gas / CNG Gensets</h3>
+        <p>Eco-friendly natural gas and CNG gensets offering lower emissions and reduced fuel costs for continuous power requirements.</p>
+        <div class="product-range">10 kVA – 1000 kVA</div>
+      </div>
+      <div class="product-card">
+        <div class="product-icon">☀️</div>
+        <h3>Hybrid Solar + Genset</h3>
+        <p>Smart hybrid systems combining solar PV with silent genset backup — minimise grid dependence and fuel consumption.</p>
+        <div class="product-range">Custom Configurations</div>
+      </div>
+      <div class="product-card">
+        <div class="product-icon">🔧</div>
+        <h3>AMC & Maintenance</h3>
+        <p>Annual Maintenance Contracts with scheduled servicing, emergency callouts, genuine spare parts and OEM support.</p>
+        <div class="product-range">All Makes & Models</div>
+      </div>
+      <div class="product-card">
+        <div class="product-icon">🛡️</div>
+        <h3>Acoustic Canopies</h3>
+        <p>Custom-built and standard acoustic canopies for existing gensets — reduce noise to below 75 dB(A) at 1 metre.</p>
+        <div class="product-range">To Suit All Frames</div>
+      </div>
+      <div class="product-card">
+        <div class="product-icon">📊</div>
+        <h3>Remote Monitoring</h3>
+        <p>IoT-based genset monitoring panels with real-time alerts, fuel tracking, run-hour logs, and cloud dashboards.</p>
+        <div class="product-range">All Connectivity Options</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SALES -->
+<section id="sales">
+  <div class="container">
+    <div class="section-label">Sales Enquiry</div>
+    <h2>Request a <em>Quote</em></h2>
+    <p class="section-intro">Fill in your requirements and our technical team will reach out with a competitive quote within 24 hours.</p>
+    <div class="sales-layout">
+      <div class="sales-form-wrapper fade-in">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" id="s-fname" placeholder="Rajesh">
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" id="s-lname" placeholder="Patel">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Company / Organisation</label>
+          <input type="text" id="s-company" placeholder="Your Company Name">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" id="s-phone" placeholder="+91 93281 49058">
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" id="s-email" placeholder="you@example.com">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Product Type</label>
+            <select id="s-product">
+              <option value="">Select Product</option>
+              <option>Diesel Silent Genset</option>
+              <option>Gas / CNG Genset</option>
+              <option>Hybrid Solar + Genset</option>
+              <option>AMC Contract</option>
+              <option>Acoustic Canopy</option>
+              <option>Remote Monitoring</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>kVA Requirement</label>
+            <select id="s-kva">
+              <option value="">Select Range</option>
+              <option>5–25 kVA</option>
+              <option>25–100 kVA</option>
+              <option>100–500 kVA</option>
+              <option>500–1000 kVA</option>
+              <option>1000+ kVA</option>
+              <option>Not Sure</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Additional Requirements</label>
+          <textarea id="s-notes" placeholder="Describe your power requirements, site details, or any specific needs…"></textarea>
+        </div>
+        <button class="form-submit" onclick="submitSales()">Submit Enquiry →</button>
+      </div>
+
+      <div class="fade-in" style="transition-delay:0.2s">
+        <h3 style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:28px;text-transform:uppercase;margin-bottom:32px;">Why Choose <em style="color:var(--red);font-style:normal;">Us?</em></h3>
+        <ul class="why-list">
+          <li class="why-item">
+            <div class="why-icon">🏭</div>
+            <div>
+              <h4>Authorised Multi-Brand Dealer</h4>
+              <p>Official dealership for Kirloskar, Cummins, Mahindra, Greaves, and more — best prices guaranteed.</p>
+            </div>
+          </li>
+          <li class="why-item">
+            <div class="why-icon">⚙️</div>
+            <div>
+              <h4>In-House Technical Team</h4>
+              <p>Certified service engineers for installation, commissioning, and preventive maintenance across Gujarat.</p>
+            </div>
+          </li>
+          <li class="why-item">
+            <div class="why-icon">📦</div>
+            <div>
+              <h4>Ready Stock Available</h4>
+              <p>Most popular kVA ranges available in stock for immediate delivery without long lead times.</p>
+            </div>
+          </li>
+          <li class="why-item">
+            <div class="why-icon">💳</div>
+            <div>
+              <h4>Finance & Leasing Options</h4>
+              <p>Flexible EMI, lease, and rental schemes available through partner NBFCs for capex-free deployment.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPLAINT -->
+<section id="complaint">
+  <div class="container">
+    <div class="section-label">Customer Support</div>
+    <h2>Register a <em>Complaint</em></h2>
+    <p class="section-intro">Facing an issue? Log it here and our service team will respond within 4 working hours.</p>
+    <div class="complaint-layout">
+      <div class="complaint-info fade-in">
+        <div style="background:var(--black);border:1px solid var(--border);padding:24px;border-radius:4px;margin-bottom:32px;">
+          <div style="font-size:13px;color:#888;margin-bottom:4px;letter-spacing:1px;text-transform:uppercase;font-weight:600;">Emergency Helpline</div>
+          <div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:32px;color:var(--red);">+91  9328149058</div>
+          <div style="font-size:13px;color:#666;margin-top:4px;">Available 24×7 for critical power failures</div>
+        </div>
+        <h4 style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:18px;text-transform:uppercase;margin-bottom:16px;color:#888;">How it works</h4>
+        <ul class="step-list">
+          <li class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-text"><h4>Submit Complaint</h4><p>Fill in the form with your issue details and unit information.</p></div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-text"><h4>Ticket Assigned</h4><p>A unique ticket ID is generated and a technician is assigned.</p></div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-text"><h4>Site Visit / Remote Help</h4><p>Our engineer contacts you and resolves the issue on-site or remotely.</p></div>
+          </li>
+          <li class="step-item">
+            <div class="step-num">4</div>
+            <div class="step-text"><h4>Closure & Feedback</h4><p>You rate our service quality after resolution to help us improve.</p></div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="complaint-form fade-in" style="transition-delay:0.2s">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" id="c-name" placeholder="Full Name">
+          </div>
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="tel" id="c-phone" placeholder="+91 XXXXX XXXXX">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Genset Model / kVA</label>
+            <input type="text" id="c-model" placeholder="e.g. KG-62.5 / 62.5 kVA">
+          </div>
+          <div class="form-group">
+            <label>Unit Serial / Invoice No.</label>
+            <input type="text" id="c-serial" placeholder="SN-XXXXXXXX">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Complaint Category</label>
+          <select id="c-category">
+            <option value="">Select Issue Type</option>
+            <option>Not Starting</option>
+            <option>Overheating</option>
+            <option>High Fuel Consumption</option>
+            <option>Noise / Vibration</option>
+            <option>Low Voltage / Frequency</option>
+            <option>Control Panel Fault</option>
+            <option>Smoke / Oil Leak</option>
+            <option>AMC / Service Due</option>
+            <option>Spare Parts Request</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Describe the Issue</label>
+          <textarea id="c-desc" placeholder="Please describe the problem in detail — when it started, what happens, any error codes or warning lights…"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Rate Your Previous Service Experience</label>
+          <div class="rating-stars" id="stars">
+            <span class="star" onclick="setRating(1)">★</span>
+            <span class="star" onclick="setRating(2)">★</span>
+            <span class="star" onclick="setRating(3)">★</span>
+            <span class="star" onclick="setRating(4)">★</span>
+            <span class="star" onclick="setRating(5)">★</span>
+          </div>
+        </div>
+        <button class="form-submit" onclick="submitComplaint()" style="background:var(--gold);color:var(--black);">Submit Complaint →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-label">About Us</div>
+    <div class="about-layout fade-in">
+      <div class="about-visual">
+        <div class="about-visual-inner">
+          <div class="about-visual-icon">⚡</div>
+          <div class="about-visual-text">Proficient Engineers</div>
+          <div style="font-size:14px;color:#444;font-family:'Barlow Condensed',sans-serif;letter-spacing:2px;">EST. 2009 · VADODARA</div>
+        </div>
+        <div style="position:absolute;bottom:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--red),var(--gold))"></div>
+      </div>
+      <div class="about-text">
+        <h2>Your Trusted <em>Power</em> Partner</h2>
+        <p>Proficient Engineers is a Vadodara-based authorised silent genset dealership with over 15 years of experience in power protection solutions. We believe every business deserves uninterrupted, clean, and quiet power.</p>
+        <p>From initial consultation and equipment selection to installation, commissioning, and long-term AMC support, we are with our customers at every stage. Our certified engineers serve clients across Gujarat in sectors including manufacturing, healthcare, IT, and real estate.</p>
+        <p>With our motto <strong>"Let's Protect Electrical Systems"</strong>, we go beyond just selling gensets — we ensure your entire electrical infrastructure stays safe, efficient, and always ready.</p>
+        <div class="about-values">
+          <div class="value-card">
+            <div class="v-icon">🏆</div>
+            <h4>Quality Assured</h4>
+            <p>Only OEM-approved gensets and genuine spares — zero compromise on quality.</p>
+          </div>
+          <div class="value-card">
+            <div class="v-icon">⚡</div>
+            <h4>Fast Response</h4>
+            <p>4-hour SLA on complaints; emergency dispatches within 2 hours.</p>
+          </div>
+          <div class="value-card">
+            <div class="v-icon">🤝</div>
+            <h4>Long-term Partnerships</h4>
+            <p>80% of our customers renew AMC contracts year after year.</p>
+          </div>
+          <div class="value-card">
+            <div class="v-icon">🌍</div>
+            <h4>Pan-Gujarat Reach</h4>
+            <p>Service network covering Vadodara, Surat, Ahmedabad, Anand, and beyond.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UPDATES -->
+<section id="updates">
+  <div class="container">
+    <div class="section-label">Latest News</div>
+    <h2>Updates & <em>Announcements</em></h2>
+    <p class="section-intro">Stay informed about new products, service advisories, and industry news from Proficient Engineers.</p>
+    <div class="updates-grid fade-in">
+      <div class="update-card">
+        <div class="update-thumb bg1">
+          <span>⚡</span>
+          <div class="update-tag">New Product</div>
+        </div>
+        <div class="update-body">
+          <div class="update-date">MARCH 2026</div>
+          <h3>Kirloskar 500 kVA Silent Series Now In Stock</h3>
+          <p>High-demand 500 kVA Kirloskar Green silent gensets now available for immediate dispatch across Gujarat.</p>
+          <a href="#contact" class="update-read">Enquire Now</a>
+        </div>
+      </div>
+      <div class="update-card">
+        <div class="update-thumb bg2">
+          <span>📋</span>
+          <div class="update-tag blue">Service Advisory</div>
+        </div>
+        <div class="update-body">
+          <div class="update-date">FEBRUARY 2026</div>
+          <h3>Annual Pre-Summer Genset Health Check Programme</h3>
+          <p>Book a free 20-point pre-summer health check for your genset before peak load season. Limited slots available.</p>
+          <a href="#complaint" class="update-read">Book Now</a>
+        </div>
+      </div>
+      <div class="update-card">
+        <div class="update-thumb bg3">
+          <span>☀️</span>
+          <div class="update-tag green">Offer</div>
+        </div>
+        <div class="update-body">
+          <div class="update-date">JANUARY 2026</div>
+          <h3>Hybrid Solar-Genset Solutions – Special Launch Pricing</h3>
+          <p>Announcing our new hybrid solar + silent genset range with special introductory pricing for the first 20 customers.</p>
+          <a href="#sales" class="update-read">Get a Quote</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label">Get In Touch</div>
+    <h2>Contact <em>Us</em></h2>
+    <p class="section-intro">Visit our showroom, call us, or send a message. Our team is ready to help.</p>
+    <div class="contact-layout fade-in">
+      <div>
+        <div class="contact-cards">
+          <div class="contact-card">
+            <div class="contact-card-icon">📍</div>
+            <div>
+              <h4>Our Office</h4>
+              <p>FF-20, Kanha Nirmal, On Main Nh#48, Tarsali, Vadodara - 390090</p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-card-icon">📞</div>
+            <div>
+              <h4>Sales & Enquiries</h4>
+              <p><a href="tel:+919328149058">+91 9328149058</a></p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-card-icon">🛠️</div>
+            <div>
+              <h4>Service / AMC</h4>
+              <p><a href="tel:+919328149058">+91 9328149058</a></p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-card-icon">✉️</div>
+            <div>
+              <h4>Email Us</h4>
+              <p><a href="mailto:viren@proficient.org.in">viren@proficient.org.in</a></p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <div class="contact-card-icon">🕐</div>
+            <div>
+              <h4>Working Hours</h4>
+              <p>Mon–Sat: 9:00 AM – 7:00 PM<br><span style="color:#888;font-size:13px">Emergency: 24×7</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form fade-in" style="transition-delay:0.2s">
+        <h3>Send us a <em style="color:var(--red);font-style:normal;">Message</em></h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" id="ct-name" placeholder="Your Name">
+          </div>
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="tel" id="ct-phone" placeholder="+91 XXXXX XXXXX">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="ct-email" placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label>Subject</label>
+          <select id="ct-subject">
+            <option value="">Select Subject</option>
+            <option>Product Enquiry</option>
+            <option>Request a Demo</option>
+            <option>AMC / Service Query</option>
+            <option>Complaint Follow-up</option>
+            <option>Partnership / Dealership</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea id="ct-message" placeholder="Type your message here…" style="min-height:130px"></textarea>
+        </div>
+        <button class="form-submit" onclick="submitContact()">Send Message →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:24px;letter-spacing:1px;">
+        PROFICIENT <span style="color:var(--red)">ENGINEERS</span>
+      </div>
+      <p>Your trusted partner for silent genset dealership, AMC services, and power protection solutions across Gujarat since 2009.</p>
+      <div style="margin-top:20px;display:flex;gap:12px">
+        <a href="#" style="width:36px;height:36px;background:#1a1a1a;border:1px solid #333;border-radius:3px;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:16px;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--red)'" onmouseout="this.style.borderColor='#333'">📘</a>
+        <a href="#" style="width:36px;height:36px;background:#1a1a1a;border:1px solid #333;border-radius:3px;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:16px;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--red)'" onmouseout="this.style.borderColor='#333'">📸</a>
+        <a href="#" style="width:36px;height:36px;background:#1a1a1a;border:1px solid #333;border-radius:3px;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:16px;transition:border-color 0.2s" onmouseover="this.style.borderColor='var(--red)'" onmouseout="this.style.borderColor='#333'">💼</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Products</h5>
+      <ul>
+        <li><a href="#products">Diesel Silent Gensets</a></li>
+        <li><a href="#products">Gas / CNG Gensets</a></li>
+        <li><a href="#products">Hybrid Systems</a></li>
+        <li><a href="#products">AMC Contracts</a></li>
+        <li><a href="#products">Acoustic Canopies</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#updates">Latest Updates</a></li>
+        <li><a href="#sales">Get a Quote</a></li>
+        <li><a href="#complaint">Register Complaint</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Brands We Deal</h5>
+      <ul>
+        <li><a href="#">Kirloskar</a></li>
+        <li><a href="#">Cummins</a></li>
+        <li><a href="#">Mahindra</a></li>
+        <li><a href="#">Greaves</a></li>
+        <li><a href="#">Perkins</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2018 Proficient Engineers, Vadodara. All rights reserved. | "Let's Protect Electrical Systems"</p>
+    <div style="font-size:12px;color:#444">GST: 24AXQPP8228G1Z1</div>
+  </div>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <span class="toast-icon" id="toastIcon">✅</span>
+  <span id="toastMsg">Message sent successfully!</span>
+</div>
+
+<script>
+  // ── SCROLL FADE IN ──
+  const fadeEls = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  fadeEls.forEach(el => observer.observe(el));
+
+  // ── ACTIVE NAV ──
+  const sections = document.querySelectorAll('section[id]');
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    sections.forEach(s => { if(window.scrollY >= s.offsetTop - 100) cur = s.id; });
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + cur);
+    });
+  });
+
+  // ── MOBILE MENU ──
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  // ── STAR RATING ──
+  let currentRating = 0;
+  function setRating(n) {
+    currentRating = n;
+    document.querySelectorAll('#stars .star').forEach((s, i) => {
+      s.classList.toggle('active', i < n);
+    });
+  }
+
+  // ── TOAST ──
+  function showToast(msg, type='success') {
+    const t = document.getElementById('toast');
+    document.getElementById('toastMsg').textContent = msg;
+    document.getElementById('toastIcon').textContent = type === 'success' ? '✅' : '❌';
+    t.className = 'toast show ' + type;
+    setTimeout(() => t.classList.remove('show'), 4000);
+  }
+
+  // ── FORMS ──
+  function submitSales() {
+    const required = ['s-fname','s-lname','s-phone','s-email','s-product'];
+    const missing = required.filter(id => !document.getElementById(id).value.trim());
+    if(missing.length) { showToast('Please fill in all required fields.', 'error'); return; }
+    showToast('Enquiry submitted! We\'ll call you within 24 hours.');
+    ['s-fname','s-lname','s-company','s-phone','s-email','s-product','s-kva','s-notes'].forEach(id => {
+      const el = document.getElementById(id); if(el) el.value = '';
+    });
+  }
+
+  function submitComplaint() {
+    const required = ['c-name','c-phone','c-category','c-desc'];
+    const missing = required.filter(id => !document.getElementById(id).value.trim());
+    if(missing.length) { showToast('Please fill in all required fields.', 'error'); return; }
+    const ticket = 'PE-' + Date.now().toString().slice(-6);
+    showToast('Complaint logged! Ticket ID: ' + ticket);
+    ['c-name','c-phone','c-model','c-serial','c-category','c-desc'].forEach(id => {
+      const el = document.getElementById(id); if(el) el.value = '';
+    });
+    setRating(0);
+  }
+
+  function submitContact() {
+    const required = ['ct-name','ct-phone','ct-message'];
+    const missing = required.filter(id => !document.getElementById(id).value.trim());
+    if(missing.length) { showToast('Please fill in all required fields.', 'error'); return; }
+    showToast('Message sent! We\'ll get back to you soon.');
+    ['ct-name','ct-phone','ct-email','ct-subject','ct-message'].forEach(id => {
+      const el = document.getElementById(id); if(el) el.value = '';
+    });
+  }
+</script>
+</body>
+</html>
